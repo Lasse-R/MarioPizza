@@ -31,4 +31,8 @@ public class Bestilling {
 
     }
 
+    @Override
+    public String toString() {
+        return "Bestilling: " + pizzaForOrder;
+    }
 }
