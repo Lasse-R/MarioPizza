@@ -17,13 +17,13 @@ public class Pizza {
         switch (whichPizza){
             case 1:
                 this.id = 1;
-                this.name = "Vesuvio";
+                this.name = "Magarita";
                 this.price = 50;
                 this.standardToppings = "tomat, ost";
                 break;
             case 2:
                 this.id = 2;
-                this.name = "Test";
+                this.name = "Vesuvio";
                 this.price = 343;
                 this.standardToppings = "tomat, ost, skinke";
                 break;
