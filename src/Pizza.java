@@ -23,8 +23,8 @@ public class Pizza {
                 break;
             case 2:
                 this.id = 2;
-                this.name = "Margarita";
-                this.price = 50;
+                this.name = "Test";
+                this.price = 343;
                 this.standardToppings = "tomat, ost";
                 break;
             case 3:

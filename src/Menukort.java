@@ -5,4 +5,9 @@ public class Menukort {
 
 
 
+
+    public void menuCreate(){
+
+    }
+
 }
