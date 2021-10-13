@@ -5,6 +5,8 @@ public class Pizza {
     private String ekstraToppings;
     private int id;
 
+    Pizza(){}
+
     public Pizza(int whichPizza){
         thirtyPizza(whichPizza);
     }
@@ -23,19 +25,25 @@ public class Pizza {
                 break;
             case 2:
                 this.id = 2;
-                this.name = "Test";
+                this.name = "Test 2";
                 this.price = 343;
                 this.standardToppings = "tomat, ost";
                 break;
             case 3:
                 this.id = 3;
-                this.name = "Margarita";
+                this.name = "Test 3";
                 this.price = 50;
                 this.standardToppings = "tomat, ost";
                 break;
             case 4:
                 this.id = 4;
-                this.name = "Margarita";
+                this.name = "Test 4";
+                this.price = 50;
+                this.standardToppings = "tomat, ost";
+                break;
+            case 5:
+                this.id = 5;
+                this.name = "test 5";
                 this.price = 50;
                 this.standardToppings = "tomat, ost";
                 break;
@@ -50,7 +58,7 @@ public class Pizza {
         return this.name;
     }
 
-    @Override
+
     public String toString() {
         return "Pizza: " + id +
                 "\nname: " + name +
