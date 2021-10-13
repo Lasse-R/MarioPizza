@@ -13,9 +13,7 @@ public class Menukort {
     }
 
     public void printMenu(){
-        for(int i = 0; i < menuCard.size(); i++){
-            System.out.println(menuCard);
-        }
+        System.out.println(menuCard);
     }
 
 }

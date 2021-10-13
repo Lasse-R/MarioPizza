@@ -11,8 +11,6 @@ public class Bestilling {
         }
 
 
-
-
     public int giveBackCounter(){
         return counterForObject;
     }
