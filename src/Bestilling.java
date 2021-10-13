@@ -21,6 +21,11 @@ public class Bestilling {
 
     }
 
+    public void deleteOrder(Bestilling bestilling){
+        pizzaForOrder = new ArrayList<>();
+        System.out.println("ORDER DELETED!");
+    }
+
     public ArrayList<Pizza> getPizzasInOrder(){
         return pizzaForOrder;
 
