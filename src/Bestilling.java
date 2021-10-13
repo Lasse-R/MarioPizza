@@ -7,7 +7,10 @@ public class Bestilling {
     public Bestilling(){
         statiskBestillingCounter++;
         counterForObject = statiskBestillingCounter;
-    }
+
+        }
+
+
 
 
     public int giveBackCounter(){
