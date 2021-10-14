@@ -1,5 +1,6 @@
-public class Main {
+public class PM2000 {
     public static void main(String[] args) {
+
         Menukort menukort = new Menukort();
         BestillingsListe bestillingsListe = new BestillingsListe();
         Bestilling bestilling1 = new Bestilling();
