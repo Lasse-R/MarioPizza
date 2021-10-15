@@ -1,13 +1,31 @@
+import java.util.Scanner;
 public class PM2000 {
-
+    Scanner in = new Scanner(System.in);
         public void startProgram () {
             Menukort menukort = new Menukort();
             BestillingsListe bestillingsListe = new BestillingsListe();
             Arkiv theArchive = Arkiv.getInstance();
 
             boolean runningFlag = true;
+            System.out.println("PizzaMachine2000 is starting");
             while(runningFlag){
-                System.out.println("PizzaMachine2000 is starting");
+                System.out.println("Menu. Vælg bestilling, arkiv, eller menukort.");
+                if (in.hasNextLine()){
+                     String userInput = in.nextLine();
+                     if (userInput.equals("bestilling")){
+                      bestilling();
+                     }
+                    if (userInput.equals("arkiv")){
+                        arkivet();
+                    }
+                    if (userInput.equals("menukort")){
+                        menuKort();
+                    }
+                }else {
+                    System.out.println("Try again");
+                }
+
+
 
             }
             /*
@@ -38,6 +56,15 @@ public class PM2000 {
     public static void main(String[] args) {
         PM2000 pmrunTime = new PM2000();
         pmrunTime.startProgram();
+    }
+    public void bestilling(){
+
+    }
+    public void menuKort(){
+
+    }
+    public void arkivet(){
+
     }
     }
 
