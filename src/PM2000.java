@@ -6,8 +6,10 @@ public class PM2000 {
     Menukort menukort = new Menukort();
     BestillingsListe bestillingsListe = new BestillingsListe();
     Arkiv theArchive = Arkiv.getInstance();
+    Statistisk statistisk = new Statistisk();
 
     public void startProgram() {
+        menukort.menuCreate();
 
 
         boolean runningFlag = true;
@@ -15,25 +17,26 @@ public class PM2000 {
         while (runningFlag) {
             System.out.println("""
                     MENU:
-                    Ny bestilling
-                    Bestillinger
-                    Arkiv
-                    Menukort""");
+                    1 - Ny bestilling
+                    2 - Bestillinger
+                    3 - Arkiv
+                    4 - Menukort""");
             if (scanner.hasNextLine()) {
                 String userInput = scanner.nextLine();
-                if (userInput.equalsIgnoreCase("ny bestilling")) {
+                if (userInput.equalsIgnoreCase("ny bestilling") || Integer.parseInt(userInput) == 1) {
                     System.out.println();
                     newOrder();
                 }
-                if (userInput.equalsIgnoreCase("bestillinger")) {
+                if (userInput.equalsIgnoreCase("bestillinger") || Integer.parseInt(userInput) == 2) {
                     doneOrder();
                 }
-                if (userInput.equalsIgnoreCase("arkiv")) {
+                if (userInput.equalsIgnoreCase("arkiv") || Integer.parseInt(userInput) == 3) {
                     archive();
                 }
-                if (userInput.equalsIgnoreCase("menukort")) {
+                if (userInput.equalsIgnoreCase("menukort") || Integer.parseInt(userInput) == 4) {
                     menuCard();
                 }
+
             } else {
                 System.out.println("Try again");
             }
@@ -70,12 +73,12 @@ public class PM2000 {
 
     public void newOrder() {//Opretter ny bestilling
         boolean isOrderDone = false;
-
+        Bestilling bestilling = new Bestilling();
         do {
 
             System.out.println("Hvilken pizza vil du tilføje?");
             String answer = scanner.nextLine();
-            Bestilling bestilling = new Bestilling();
+
             bestilling.addPizza(Integer.parseInt(answer));
             System.out.println("Bestilling fuldendt?");
             answer = scanner.nextLine();
@@ -93,7 +96,6 @@ public class PM2000 {
         } while (!isOrderDone);
     }
 
-
     public void doneOrder() {//behandler færdige bestillinger
         bestillingsListe.getActiveOrders();
         System.out.println(bestillingsListe.allOrders);
@@ -104,43 +106,34 @@ public class PM2000 {
             System.out.println("Okay!");
         }
         if(answer.equalsIgnoreCase("ja")){
-            System.out.println("Hvilket order nummer er færdig?");
-            answer = scanner.nextLine();
-            for(int i = 0; i < bestillingsListe.allOrders.size(); i++){
-                if(Integer.parseInt(answer) == bestillingsListe.allOrders.get(i).giveBackCounter()){
-                    System.out.println("ønsker du at fjerne ordre: " + bestillingsListe.allOrders.get(i).giveBackCounter() + "?");
-                    answer = scanner.nextLine();
-                    if(answer.equalsIgnoreCase("ja")){
-                        //TODO TILFØJ TIL ARKIV
+            boolean isDone = false;
+            do {
+                System.out.println("Hvilket order nummer er færdig?");
+                answer = scanner.nextLine();
+                for (int i = 0; i < bestillingsListe.allOrders.size(); i++) {
+                    if (Integer.parseInt(answer) == bestillingsListe.allOrders.get(i).giveBackCounter()) {
+                        System.out.println("ønsker du at fjerne ordre: " + bestillingsListe.allOrders.get(i).giveBackCounter() + "?");
+                        answer = scanner.nextLine();
+                        if (answer.equalsIgnoreCase("ja")) {//TODO Mangler at tilføje favorit pizza
+                            statistisk.setAllTimeSale(bestillingsListe.allOrders.get(i).getOrderPrice());
+                            System.out.println("ordre: " + bestillingsListe.allOrders.get(i).giveBackCounter() + " blev slettet og arkiveret");
+                            bestillingsListe.allOrders.remove(i);
+                            isDone = true;
+                        }
+                    } else {
+                        System.out.println("Kunne ikke finde en ordre med dette nummer!");
                     }
-                    if(answer.equalsIgnoreCase("nej")){
-
-                    }
-                    if(!answer.equalsIgnoreCase("ja") || !answer.equalsIgnoreCase("nej")){
-
-                    }
-                }else{
-                    System.out.println("Kunne ikke finde en ordre med dette nummer!");
                 }
-            }
+            }while (!isDone);
         }
     }
 
     public void menuCard() {//finder menu kortet frem
-
+        menukort.printMenu();
     }
 
     public void archive() {//Henter statistikker frem
-
+        //TODO Mangler at oprette de sidste metoder i Statisk og opsætte udprint til at stå pænt
+        System.out.println(statistisk.getAllTimeSale());
     }
 }
-
-
-
-
-
-
-
-
-
-

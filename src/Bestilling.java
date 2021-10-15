@@ -1,9 +1,12 @@
 import java.util.ArrayList;
 
 public class Bestilling {
+
     static int statiskBestillingCounter = 0;
     private int counterForObject;
     private ArrayList<Pizza> pizzaForOrder = new ArrayList<>();
+    private int orderPrice;
+
     public Bestilling(){
         statiskBestillingCounter++;
         counterForObject = statiskBestillingCounter;
@@ -29,6 +32,14 @@ public class Bestilling {
         return pizzaForOrder;
 
     }
+
+    public int getOrderPrice(){
+        for(int i = 0; i < pizzaForOrder.size(); i++){
+            orderPrice += pizzaForOrder.get(i).getPrice();
+        }
+        return orderPrice;
+    }
+
 
     @Override
     public String toString() {

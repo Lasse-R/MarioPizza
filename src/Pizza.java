@@ -135,6 +135,10 @@ public class Pizza {
         return this.name;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return "Pizza: " + id + " \n- Name: " + name + " \n- Toppings: " + standardToppings +

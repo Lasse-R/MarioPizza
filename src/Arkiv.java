@@ -5,6 +5,7 @@ public class Arkiv {
     private static Arkiv INSTANCE;
     private String info = "Initial info class";
 
+
     private Arkiv() {
     }
 
