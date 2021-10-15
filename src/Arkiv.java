@@ -12,7 +12,6 @@ public class Arkiv {
         if(INSTANCE == null) {
             INSTANCE = new Arkiv();
         }
-
         return INSTANCE;
     }
 
