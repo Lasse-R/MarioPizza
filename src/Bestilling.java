@@ -18,7 +18,6 @@ public class Bestilling {
     public void addPizza(int choosePizza){
         Pizza pizza = new Pizza(choosePizza);
         pizzaForOrder.add(pizza);
-
     }
 
     public void deleteOrder(Bestilling bestilling){
@@ -33,6 +32,6 @@ public class Bestilling {
 
     @Override
     public String toString() {
-        return "Bestilling: " + pizzaForOrder;
+        return "Bestilling: " + giveBackCounter() + "\n" + pizzaForOrder;
     }
 }

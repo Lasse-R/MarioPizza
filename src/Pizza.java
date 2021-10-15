@@ -137,8 +137,8 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza: " + id + " - Name: " + name + " - Toppings: " + standardToppings +
-                "\nprice: " + price + "\n\n";
+        return "Pizza: " + id + " \n- Name: " + name + " \n- Toppings: " + standardToppings +
+                "\n- price: " + price + "\n\n";
 
     }
 }

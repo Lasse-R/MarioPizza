@@ -1,33 +1,42 @@
 import java.util.Scanner;
+
 public class PM2000 {
-    Scanner in = new Scanner(System.in);
-        public void startProgram () {
-            Menukort menukort = new Menukort();
-            BestillingsListe bestillingsListe = new BestillingsListe();
-            Arkiv theArchive = Arkiv.getInstance();
+    Scanner scanner = new Scanner(System.in);
+    Menukort menukort = new Menukort();
+    BestillingsListe bestillingsListe = new BestillingsListe();
+    Arkiv theArchive = Arkiv.getInstance();
 
-            boolean runningFlag = true;
-            System.out.println("PizzaMachine2000 is starting");
-            while(runningFlag){
-                System.out.println("Menu. Vælg bestilling, arkiv, eller menukort.");
-                if (in.hasNextLine()){
-                     String userInput = in.nextLine();
-                     if (userInput.equals("bestilling")){
-                      bestilling();
-                     }
-                    if (userInput.equals("arkiv")){
-                        arkivet();
-                    }
-                    if (userInput.equals("menukort")){
-                        menuKort();
-                    }
-                }else {
-                    System.out.println("Try again");
+    public void startProgram() {
+
+
+        boolean runningFlag = true;
+        System.out.println("PizzaMachine2000 is starting");
+        while (runningFlag) {
+            System.out.println("""
+                    MENU:
+                    Ny bestilling
+                    Bestillinger
+                    Arkiv
+                    Menukort""");
+            if (scanner.hasNextLine()) {
+                String userInput = scanner.nextLine();
+                if (userInput.equalsIgnoreCase("ny bestilling")) {
+                    System.out.println();
+                    newOrder();
                 }
-
-
-
+                if (userInput.equalsIgnoreCase("bestillinger")) {
+                    doneOrder();
+                }
+                if (userInput.equalsIgnoreCase("arkiv")) {
+                    archive();
+                }
+                if (userInput.equalsIgnoreCase("menukort")) {
+                    menuCard();
+                }
+            } else {
+                System.out.println("Try again");
             }
+        }
             /*
             //System.out.println(bestilling1.getPizzasInOrder());
 
@@ -50,23 +59,53 @@ public class PM2000 {
                 }
 
              */
-            }
+    }
 
 
     public static void main(String[] args) {
         PM2000 pmrunTime = new PM2000();
         pmrunTime.startProgram();
     }
-    public void bestilling(){
+
+    public void newOrder() {//Opretter ny bestilling
+        boolean isOrderDone = false;
+
+        do {
+
+            System.out.println("Hvilken pizza vil du tilføje?");
+            String answer = scanner.nextLine();
+            Bestilling bestilling = new Bestilling();
+            bestilling.addPizza(Integer.parseInt(answer));
+            System.out.println("Bestilling fuldendt?");
+            answer = scanner.nextLine();
+            if (answer.equalsIgnoreCase("ja")) {
+                isOrderDone = true;
+                bestillingsListe.activeOrders(bestilling);
+                System.out.println("Bestilling oprettet!");
+                try {
+                    Thread.sleep(1250);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+
+        } while (!isOrderDone);
+    }
+
+
+    public void doneOrder() {//behandler færdige bestillinger
+        bestillingsListe.getActiveOrders();
+        System.out.println(bestillingsListe.allOrders);
+    }
+
+    public void menuCard() {//finder menu kortet frem
 
     }
-    public void menuKort(){
+
+    public void archive() {//Henter statistikker frem
 
     }
-    public void arkivet(){
-
-    }
-    }
+}
 
 
 

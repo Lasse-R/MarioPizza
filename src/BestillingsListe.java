@@ -3,20 +3,15 @@ import java.util.ArrayList;
 
 public class BestillingsListe {
     ArrayList<Bestilling> allOrders = new ArrayList<>();
-    Bestilling bestilling = new Bestilling();
-    int counter = bestilling.giveBackCounter();
 
 
-    public ArrayList activeOrders(Bestilling orders){
-        allOrders.add(orders);
+    public void activeOrders(Bestilling orders){
+        this.allOrders.add(orders);
+    }
 
-
-        return allOrders;
+    public String getActiveOrders(){
+        return "Aktive Bestillinger: " +"\n" + allOrders;
     }
 
 
-    @Override
-    public String toString() {
-        return "BestillingsListe " + allOrders;
-    }
 }
