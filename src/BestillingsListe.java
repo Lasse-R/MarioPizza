@@ -15,7 +15,6 @@ public class BestillingsListe {
     }
 
 
-
     @Override
     public String toString() {
         return "BestillingsListe " + allOrders;

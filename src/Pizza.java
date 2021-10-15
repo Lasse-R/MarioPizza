@@ -12,7 +12,6 @@ public class Pizza {
         thirtyPizza(whichPizza);
     }
 
-
         public void thirtyPizza(int whichPizza){
         switch (whichPizza){
             case 1:
@@ -130,9 +129,6 @@ public class Pizza {
                 this.standardToppings = "tomat, ost, skinke, pepperoni, cocktail pølse";
                 break;
         }
-
-
-
 
     }
     public String getName(){
