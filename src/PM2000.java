@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class PM2000 {
@@ -96,6 +97,33 @@ public class PM2000 {
     public void doneOrder() {//behandler færdige bestillinger
         bestillingsListe.getActiveOrders();
         System.out.println(bestillingsListe.allOrders);
+
+        System.out.println("Er en bestilling færdig?");
+        String answer = scanner.nextLine();
+        if(answer.equalsIgnoreCase("nej")){
+            System.out.println("Okay!");
+        }
+        if(answer.equalsIgnoreCase("ja")){
+            System.out.println("Hvilket order nummer er færdig?");
+            answer = scanner.nextLine();
+            for(int i = 0; i < bestillingsListe.allOrders.size(); i++){
+                if(Integer.parseInt(answer) == bestillingsListe.allOrders.get(i).giveBackCounter()){
+                    System.out.println("ønsker du at fjerne ordre: " + bestillingsListe.allOrders.get(i).giveBackCounter() + "?");
+                    answer = scanner.nextLine();
+                    if(answer.equalsIgnoreCase("ja")){
+                        //TODO TILFØJ TIL ARKIV
+                    }
+                    if(answer.equalsIgnoreCase("nej")){
+
+                    }
+                    if(!answer.equalsIgnoreCase("ja") || !answer.equalsIgnoreCase("nej")){
+
+                    }
+                }else{
+                    System.out.println("Kunne ikke finde en ordre med dette nummer!");
+                }
+            }
+        }
     }
 
     public void menuCard() {//finder menu kortet frem
