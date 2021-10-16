@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Arkiv {
-    private ArrayList<Bestilling> allArchivedOrders = new ArrayList<>();
+    static private ArrayList<Bestilling> allArchivedOrders = new ArrayList<>();
     private static Arkiv INSTANCE;
     private String info = "Initial info class";
 
