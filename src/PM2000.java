@@ -55,8 +55,8 @@ public class PM2000 {
 
             System.out.println("Hvilken pizza vil du tilføje?");
             String answer = scanner.nextLine();
-
             bestilling.addPizza(Integer.parseInt(answer));
+            System.out.println("Pizza tilføjet!");
             System.out.println("Bestilling fuldendt?");
             answer = scanner.nextLine();
             if (answer.equalsIgnoreCase("ja")) {
