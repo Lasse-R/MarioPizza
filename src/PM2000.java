@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class PM2000 {
@@ -41,28 +40,6 @@ public class PM2000 {
                 System.out.println("Try again");
             }
         }
-            /*
-            //System.out.println(bestilling1.getPizzasInOrder());
-
-            Bestilling bestilling2 = new Bestilling();
-            bestilling2.addPizza(4);
-
-            bestillingsListe.activeOrders(bestilling1);
-            bestillingsListe.activeOrders(bestilling2);
-
-            int bestillingsNummer = 3;
-
-
-
-            for (int i = 0; i < bestillingsListe.allOrders.size(); i++) {
-                if (bestillingsListe.allOrders.get(i).giveBackCounter() == bestillingsNummer) {
-                    System.out.println("fandt denne");
-                    System.out.println(bestillingsListe.allOrders.get(i));
-
-                    bestillingsListe.allOrders.remove(i);
-                }
-
-             */
     }
 
 

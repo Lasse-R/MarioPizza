@@ -8,7 +8,7 @@ public class Statistisk {
         this.saleOfDay += saleOfDay;
     }
 
-    public void setAllTimeSale(int allTimeSale) {
+    public void setAllTimeSale(int allTimeSale) {//Til tekst fil
         this.allTimeSale += allTimeSale;
     }
 
