@@ -1,4 +1,3 @@
-import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
 public class BestillingsListe {
@@ -12,6 +11,5 @@ public class BestillingsListe {
     public String getActiveOrders(){
         return "Aktive Bestillinger: " +"\n" + allOrders;
     }
-
 
 }

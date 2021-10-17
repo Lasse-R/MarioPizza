@@ -7,39 +7,37 @@ public class Bestilling {
     private ArrayList<Pizza> pizzaForOrder = new ArrayList<>();
     private int orderPrice;
 
-    public Bestilling(){
+    public Bestilling() {
         statiskBestillingCounter++;
         counterForObject = statiskBestillingCounter;
 
-        }
+    }
 
-
-    public int giveBackCounter(){
+    public int giveBackCounter() {
         return counterForObject;
     }
 
-    public void addPizza(int choosePizza){
+    public void addPizza(int choosePizza) {
         Pizza pizza = new Pizza(choosePizza);
         pizzaForOrder.add(pizza);
     }
 
-    public void deleteOrder(Bestilling bestilling){
+    public void deleteOrder(Bestilling bestilling) {
         pizzaForOrder = new ArrayList<>();
         System.out.println("ORDER DELETED!");
     }
 
-    public ArrayList<Pizza> getPizzasInOrder(){
+    public ArrayList<Pizza> getPizzasInOrder() {
         return pizzaForOrder;
 
     }
 
-    public int getOrderPrice(){
-        for(int i = 0; i < pizzaForOrder.size(); i++){
+    public int getOrderPrice() {
+        for (int i = 0; i < pizzaForOrder.size(); i++) {
             orderPrice += pizzaForOrder.get(i).getPrice();
         }
         return orderPrice;
     }
-
 
     @Override
     public String toString() {

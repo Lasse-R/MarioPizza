@@ -16,9 +16,4 @@ public class Arkiv {
         return INSTANCE;
     }
 
-
-
-
-
-
 }
