@@ -91,8 +91,9 @@ public class PM2000 {
                     if (Integer.parseInt(answer) == bestillingsListe.allOrders.get(i).giveBackCounter()) {
                         System.out.println("ønsker du at fjerne ordre: " + bestillingsListe.allOrders.get(i).giveBackCounter() + "?");
                         answer = scanner.nextLine();
-                        if (answer.equalsIgnoreCase("ja")) {//TODO Mangler at tilføje favorit pizza
+                        if (answer.equalsIgnoreCase("ja")) {
                             statistisk.setAllTimeSale(bestillingsListe.allOrders.get(i).getOrderPrice());
+                            statistisk.setMostPopularPizza(bestillingsListe.allOrders.get(i));
                             System.out.println("ordre: " + bestillingsListe.allOrders.get(i).giveBackCounter() + " blev slettet og arkiveret");
                             bestillingsListe.allOrders.remove(i);
                             isDone = true;
@@ -110,7 +111,8 @@ public class PM2000 {
     }
 
     public void archive() {//Henter statistikker frem
-        //TODO Mangler at oprette de sidste metoder i Statisk og opsætte udprint til at stå pænt
-        System.out.println(statistisk.getAllTimeSale());
+
+        System.out.println("Der er solgt for i alt: " + statistisk.getAllTimeSale() + "kr.");
+        System.out.println("Mest solgte pizza: " + statistisk.getMostPopularPizza());
     }
 }
